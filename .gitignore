@@ -1,0 +1,9 @@
+.env
+data/
+__pycache__/
+.venv/
+*.pyc
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+.vscode/
