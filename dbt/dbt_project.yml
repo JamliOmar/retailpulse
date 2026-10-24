@@ -1,0 +1,16 @@
+name: retailpulse
+version: "1.0.0"
+config-version: 2
+profile: retailpulse
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+models:
+  retailpulse:
+    staging:
+      +schema: staging
+      +materialized: view
+    marts:
+      +schema: gold
+      +materialized: table
