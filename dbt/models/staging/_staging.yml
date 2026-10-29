@@ -9,12 +9,14 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_customers')
-              field: customer_id
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
       - name: order_status
         tests:
           - accepted_values:
-              values: [delivered, shipped, canceled, unavailable, invoiced, processing, created, approved]
+              arguments:
+                values: [delivered, shipped, canceled, unavailable, invoiced, processing, created, approved]
 
   - name: stg_customers
     columns:
@@ -33,18 +35,21 @@ models:
       - name: order_id
         tests:
           - relationships:
-              to: ref('stg_orders')
-              field: order_id
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
       - name: product_id
         tests:
           - relationships:
-              to: ref('stg_products')
-              field: product_id
+              arguments:
+                to: ref('stg_products')
+                field: product_id
       - name: seller_id
         tests:
           - relationships:
-              to: ref('stg_sellers')
-              field: seller_id
+              arguments:
+                to: ref('stg_sellers')
+                field: seller_id
 
   - name: stg_order_payments
     columns:
@@ -53,8 +58,9 @@ models:
       - name: order_id
         tests:
           - relationships:
-              to: ref('stg_orders')
-              field: order_id
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
 
   - name: stg_order_reviews
     columns:
@@ -63,12 +69,14 @@ models:
       - name: review_score
         tests:
           - accepted_values:
-              values: [1, 2, 3, 4, 5]
+              arguments:
+                values: [1, 2, 3, 4, 5]
       - name: order_id
         tests:
           - relationships:
-              to: ref('stg_orders')
-              field: order_id
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
 
   - name: stg_products
     columns:
