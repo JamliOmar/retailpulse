@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:16
+    shm_size: 256mb
     container_name: retailpulse_pg
     env_file: .env
     ports:
